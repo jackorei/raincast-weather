@@ -1,123 +1,191 @@
-* {
+:root {
+    --text-light: rgb(220, 220, 220);
+    --text-subtle: rgb(163, 163, 163);
+    --text-muted: rgb(79, 79, 83);
+    --text-white: rgb(255, 255, 255);
+  
+    --bg-main: rgb(11, 11, 11);
+    --bg-header: rgba(8, 8, 8, 0.6);
+    --bg-glass-hover: rgb(26, 26, 26);
+    --bg-input: rgb(8, 8, 8);
+  
+    --border-light: rgb(36, 36, 36);
+    --border-header: rgb(35, 35, 36);
+  
+    --shadow-glass: 0 2px 20px rgba(0, 0, 0, 0.2);
+    --blur: blur(12px);
+  }
+  
+  * {
     list-style: none;
     text-decoration: none;
     font-family: "Inter", sans-serif;
     font-weight: 330;
-    color: white;
-}
-
-body {
-    background-color: rgb(21, 21, 22);
+    color: var(--text-light);
+  }
+  
+  body {
+    background-color: var(--bg-main);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0px;
-    padding: 0px;
-}
-
-*:focus {
+    margin: 0;
+    padding: 0;
+  }
+  
+  *:focus {
     outline: none;
-}
-
-.main {
+  }
+  
+  .main {
     display: flex;
     flex: 1;
-}
-
-header {
+  }
+  
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  header {
+    animation: fadeInSlide 0.6s ease-out;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: rgb(8, 8, 8);
+    padding: 20px;
+    background-color: var(--bg-header);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    box-shadow: var(--shadow-glass);
     gap: 20px;
-}
-
-.title {
+    border-bottom: 1px solid var(--border-header);
+  }
+  
+  .title {
     font-size: 20px;
     display: flex;
     align-items: center;
     gap: 5px;
-    color: rgb(255, 255, 255);
-}
-.title-link {
+    color: var(--text-white);
+  }
+  
+  .title-link {
     display: inline-flex;
     align-items: center;
     gap: 5px;
     font-weight: 400;
-}
-.raincasticon {
+    cursor: pointer;
+  }
+  
+  .raincasticon {
     width: 20px;
     height: 20px;
-}
-
-#how {
+  }
+  
+  #how {
     font-size: 20px;
-}
-
-#searchform {
+    background-color: transparent;
+    color: var(--text-subtle);
+    border-radius: 50%;
+    cursor: pointer;
+    width: 32.5px;
+    height: 32.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  #how:hover {
+    background-color: var(--bg-glass-hover);
+    color: var(--text-white);
+  }
+  
+  #searchform {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
-}
-
-#searchlabel {
+  }
+  
+  #searchlabel {
     font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-}
-
-#weathersearch {
+  }
+  
+  #weathersearch {
     padding: 5px;
-    background-color: rgb(8, 8, 8);
-    border: 1px solid  rgb(50, 50, 50);
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-light);
     border-radius: 10px;
     font-size: 17px;
     width: 100%;
-}
-
-#searchbutton {
-    font-size: 17px;
-    background-color: rgb(8, 8, 8);
-    border: 1px solid  rgb(50, 50, 50);
+    transition: border 0.2s;
+  }
+  #weathersearch:focus {
+    border: 1px solid rgb(52, 52, 52);
+  }
+  
+  #searchbutton {
+    background-color: transparent;
+    color: var(--text-light);
     border-radius: 10px;
-}
+    cursor: pointer;
+    height: 32.5px;
+    border: 1px solid var(--border-light);
+    transition: background-color 0.2s ease, color 0.2s ease, border 0.2s;
+  }
 
+  #searchbutton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+  }
+  
+  .search-icon {
+    stroke: var(--text-light);
+    transition: stroke 0.2s ease;
+    width: 17px;
+    height: 17px;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.footer {
+  }
+  
+  #searchbutton:hover .search-icon {
+    stroke: var(--text-white);
+  }
+  
+  #searchbutton:hover {
+    background-color: var(--bg-glass-hover);
+    color: var(--text-white);
+    border: 1px solid rgb(52, 52, 52);
+  }
+  
+  .footer {
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border-top: 1px solid rgb(35, 35, 36);
+    border-top: 1px solid var(--border-header);
   }
   
   .credit {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: rgb(79, 79, 83);
+    color: var(--text-muted);
     font-size: 16px;
   }
   
@@ -129,10 +197,46 @@ header {
   .github-icon {
     width: 20px;
     height: 20px;
-    fill: rgb(79, 79, 83);
+    fill: var(--text-muted);
     transition: fill 0.3s ease;
   }
   
   .github-link:hover .github-icon {
     fill: #cfcfcf;
   }
+
+.display {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 30px;
+}
+
+.topcontainer {
+    width: 100%;
+    height: 200px;
+    background-color: rgb(14, 14, 14);
+    border: 1px solid rgb(25, 25, 25);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+  
+  @media (max-width: 700px) {
+    header {
+      align-items: stretch;
+      padding: 16px;
+      gap: 12px;
+    }
+  }
+
