@@ -349,11 +349,13 @@
 .bottom-in {
     height: 100%;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lazy {
+  font-size: 25px;
 }
 
 

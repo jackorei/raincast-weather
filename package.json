@@ -1,11 +1,14 @@
 {
   "name": "weatherapp",
   "version": "1.0.0",
+  "homepage": "https://jackorei.github.io/raincast-weather",
   "main": "index.js",
-  "scripts": {
+    "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
