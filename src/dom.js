@@ -9,11 +9,13 @@ const location = document.querySelector('#locationtitle')
 const loading = document.querySelector('.fulldiv')
 const uv = document.querySelector('#uv')
 const wind = document.querySelector('#wind')
+const body = document.querySelector('body')
 
 async function startWeather() {
     const data = await weatherData('Chicago')
     if (data) {
         updateUI(data)
+        weatherBG(data.condition)
         console.log(data)
     }
     else {
@@ -29,6 +31,19 @@ addEventListener('input', () => {
     weathersearch.placeholder = 'Search any location'
 })
 
+function weatherBG(condition) {
+    console.log(condition)
+  let image = 'default.jpg';
+
+  if (condition.includes("Clear")) image = 'sunnyday.jpg';
+  else if (condition.includes("Rain")) image = 'rainyday.jpg';
+  else if (condition.includes("Snow")) image = 'snowyday.jpg';
+  else if (condition.includes("Partially cloudy")) image = 'cloudyday.jpg';
+  else if (condition.includes("Thunder")) image = 'rainynight.jpg';
+
+  body.style.backgroundImage = `url('images/${image}')`;
+}
+
 
 
 
@@ -42,6 +57,7 @@ searchform.addEventListener('submit', async (event) => {
     const data = await weatherData(formsearch)
     if (data) {
         updateUI(data)
+        weatherBG(data.condition)
         console.log(data)   
     }
     else {
