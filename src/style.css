@@ -304,14 +304,14 @@
 
 .container {
     flex: 1;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 30px;
     min-height: 0;
   }
 
 .top-left {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     padding-bottom: 20px;
@@ -384,4 +384,5 @@
 
 
   }
+
 
