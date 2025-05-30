@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="fulldiv">
+        <div class="loading"></div>
+    </div>
     <header class="head">
         <div class="title">
             <a href="#" target="" class="title-link">
@@ -21,7 +24,7 @@
           </div>
         <form id="searchform">
             <label id="searchlabel" for="weathersearch">
-                <input type="text" id="weathersearch" placeholder="Search any location">
+                <input type="text" autocomplete="off" id="weathersearch" placeholder="Search any location">
             </label>
             <button id="searchbutton" type="submit">
                 <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -37,10 +40,23 @@
             <div class="container">
                 <div class="topcontainer">
                     <div class="top-inside">
+                        <div class="top-left">
+                            <div id="location">
+                                <svg id="locationsvg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span id="locationtitle"></span></div>
+                            <div id="temp"></div>
+                            <div id="conditions"></div>
+                        </div>
+                        <div class="top-bleft">
+                            <div id="uv"></div>
+                            <div id="wind"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="bottomcontainer">
                     <div class="bottom-inside">
+                        <div class="bottom-in">
+                        </div>
                     </div>
                 </div>
             </div> 

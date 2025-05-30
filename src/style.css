@@ -46,6 +46,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    animation: fadeInSlide 0.6s ease-out;
   }
   
 @keyframes fadeInSlide {
@@ -56,6 +57,33 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+}
+
+.fulldiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.404);
+}
+
+.loading {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(255, 255, 255);
+    border-left: 3px solid rgba(85, 154, 191, 0);
+    border-radius: 50%;
+    animation: loadingSpin 1s linear infinite;
+}
+
+@keyframes loadingSpin {
+    to {
+        transform: rotate(360deg);
     }
 }
   
@@ -78,14 +106,14 @@
     font-size: 20px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     color: var(--text-white);
   }
   
   .title-link {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     font-weight: 400;
     cursor: pointer;
   }
@@ -118,7 +146,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 8px;
   }
   
   #searchlabel {
@@ -126,7 +154,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
   }
   
   #weathersearch {
@@ -219,7 +247,6 @@
 }
 
 .topcontainer {
-    height: 300px;
     background-color: rgb(12, 12, 12);
     border: 1px solid rgb(22, 22, 22);
     border-radius: 20px;
@@ -229,6 +256,7 @@
 }
 
 .top-inside {
+    transition: 0.5s ease;
     background: linear-gradient(
     to bottom left,
     rgb(15, 15, 15),
@@ -241,6 +269,9 @@
     border-radius: 15px;
     display: flex;
     align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .bottomcontainer {
@@ -255,6 +286,7 @@
 }
 
 .bottom-inside {
+    transition: 0.5s ease;
     background: linear-gradient(
     to bottom left,
     rgb(15, 15, 15),
@@ -267,6 +299,7 @@
     border-radius: 15px;
     display: flex;
     align-items: center;
+    padding: 20px;
 }
 
 .container {
@@ -274,8 +307,66 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    min-height: 0;
   }
 
+.top-left {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.106);
+}
+
+.top-bleft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+}
+
+#temp {
+    font-size: 90px;
+}
+
+#conditions {
+    font-size: 25px;
+}
+
+#uv {
+    font-size: 25px;
+}
+
+#wind {
+    font-size: 25px;
+}
+
+#location {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#locationsvg {
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.bottom-in {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+}
+
+.top-inside:hover, .bottom-inside:hover {
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.02);
+    transform: scale(1.005);
+  }
 
 
 
@@ -290,5 +381,7 @@
       padding: 16px;
       gap: 12px;
     }
+
+
   }
 
