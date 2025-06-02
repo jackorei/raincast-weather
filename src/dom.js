@@ -37,6 +37,7 @@ function weatherBG(condition) {
 
   if (condition.includes("Clear")) image = 'sunnyday.jpg';
   else if (condition.includes("Rain")) image = 'rainyday.jpg';
+  else if (condition.includes("Overcast")) image = 'rainyday.jpg'
   else if (condition.includes("Snow")) image = 'snowyday.jpg';
   else if (condition.includes("Partially cloudy")) image = 'cloudyday.jpg';
   else if (condition.includes("Thunder")) image = 'rainynight.jpg';
